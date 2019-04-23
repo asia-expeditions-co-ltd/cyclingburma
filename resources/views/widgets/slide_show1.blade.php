@@ -5,7 +5,7 @@
   <div class="bss-slides demo1" tabindex="1" autofocus="autofocus">
   	@foreach($getSlide as $item) 
             <figure>
-		      <img src="{{Content::urlImage($item->picture, 'photos/share/')}}" style="background-image: url({{Content::urlImage($item->picture, 'photos/share/')}});" width="100%" /><figcaption><p>{{$item->name}}</p>.</figcaption> 
+		      <img src="{{Content::urlImage($item->picture, 'photos/share/')}}" style="background-image: url({{Content::urlImage($item->picture, 'photos/share/')}});" width="100%" /><figcaption>{{$item->name}}</figcaption> 
             </figure>
 @endforeach
        

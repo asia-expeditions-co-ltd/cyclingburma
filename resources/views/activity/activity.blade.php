@@ -13,7 +13,7 @@ use App\component\Content;
         <div class="slideshow">
             <div id="myCarousel" class="slide carousel-fade" style="height: 350px;">
                 <div class="carousel-inner" id="carousel-warpper" >
-                    <div  class="item active item-slide" style="background-image: url(/photos/share/bort.jpg); background-position: 0px -80px; background-size: cover;">                        
+                    <div  class="item active item-slide" style="background-image: url(/photos/share/cycling.jpg); background-position: 0px -80px; background-size: cover;">                        
                     </div>  
                 </div>    
             </div>
