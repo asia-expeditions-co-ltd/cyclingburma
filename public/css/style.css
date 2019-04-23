@@ -162,7 +162,7 @@ body {margin:0;font-family:Arial}
   }
 
  .mylogotop{
-    width: 180px;height: 50px; 
+    width: 155px;height: 50px; 
     margin-left: 40%; 
     margin-top: -15px;
   }
@@ -184,16 +184,17 @@ body {margin:0;font-family:Arial}
     margin-left: 29%;
   }
   .mylogotop{
-    width: 180px;height: 50px; 
-    margin-left: 92%; 
-    margin-top: -15px;
+    width: 140px;
+    height: 55px;
+    margin-left: 90%;
+    margin-top: -17px;
   }
   .mtopnav > a{
-  margin-top: 10px;
+  margin-top: 5px;
 
 }
 .mydropdown{
-  margin-top: 10px;
+  margin-top: 5px;
  }
  .bss-slides figure img{
   height: 420px;}

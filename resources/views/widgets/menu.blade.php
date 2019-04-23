@@ -1,8 +1,8 @@
 
 <div class="container-fluid hidden-xs" id="menu-header-top">
     <ul class="nav navbar-nav">
-      	<li><a href="javascript:void(0)"><i class="fa fa-phone"></i>&nbsp;+95 (1) 200 401 / (9) 401 533 484 </a></li>
-      	<li><a href="javascript:void(0)"><i class="fa fa-envelope-o"></i>&nbsp; info [at] cyclingburma.com </a></li>
+      	<li><a href="javascript:void(0)"><i class="fa fa-phone"></i>&nbsp;+95 (9) 401 533 484  </a></li>
+      	<li><a href="javascript:void(0)"><i class="fa fa-envelope-o"></i>&nbsp; info@cyclingburma.com </a></li>
     </ul>
 </div>
 <!-- add new menu --> 
