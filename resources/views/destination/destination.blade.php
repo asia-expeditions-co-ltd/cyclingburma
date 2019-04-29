@@ -14,12 +14,11 @@ use App\component\Content;
         $imagetop  = 'img/bagan.jpg';
     }
 ?>
-
 @section('content')
 @widget('menu')
 <div class="overflownone">
     <div class="col-md-12 nopaddingleft nopaddingright">
-        <div id="myCarousel" class="slide carousel-fade" style="height:300px;">
+        <div id="myCarousel" class="slide carousel-fade" style="height:420px;">
             <div class="carousel-inner" id="carousel-warpper" >
                 <div class="item active item-slide" style="background-image: url({{$imagetop}}); background-position: 0px 0px; background-size: cover;">
                 </div>  
@@ -128,7 +127,14 @@ use App\component\Content;
                     <div class="section-title welcome-section widget-title">
                         <h2><b>Our Popurlar Place</b></h2>
                     </div>
-                    @foreach(\App\Province::getdes_pro() as $con)
+                    @foreach(\DB::table('province as pro')
+                                ->join('tbl_tours as tour', 'tour.province_id', '=', 'pro.id')
+                                ->join('tour_web as tweb', 'tour.id' ,'=', 'tweb.tour_id')
+                                ->select('pro.*')
+                                ->groupBy('tour.province_id')
+                                ->where(['tour.status'=>1,'pro.province_status'=>1,'tour.country_id'=>122,'tweb.web_id'=>config('app.web')])
+                                ->orderBy('pro.province_order', 'DESC')
+                                ->get(); as $con)
                     <div class="col-sm-4 col-xs-12 golf-club wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-name: fadeInUp;" >
                         <div class="row"  >
                           <div class="form-group item-tour" style="margin:13px; position: relative;">

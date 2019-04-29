@@ -28,7 +28,7 @@
 @widget('menu')
 <div class="overflownone" >
     <div class="col-md-12 nopaddingleft nopaddingright">
-        <div id="myCarousel" class="slide carousel-fade" style="height: 400px;">
+        <div id="myCarousel" class="slide carousel-fade" style="height: 420px;">
             <div class="carousel-inner" id="carousel-warpper" >              
                 <div class="item active item-slide">
                   <img src="{{$imagetop}}" style="width: 100%; height: 100%;">
