@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Tour;
+use Illuminate\Support\Facades\Response;
+
 class TourController extends Controller
 {
     /**
@@ -15,8 +17,16 @@ class TourController extends Controller
     public function index()
     {
         // $tours = Tour::where('status', 1)->get();
-        $tours = Tour::select('title', 'slug', 'user_id', 'country_id', 'province_id', 'tour_daynight', 'tour_price', 'photo', 'picture', 'tour_highlight', 'tour_desc', 'tour_remark')->where('status', 1)->orderBy('id', 'DESC')->get();
-        return Response()->json(['data' => $tours]);
+        $jsonData = [];
+        $tours = Tour::where('status', 1)->orderBy('id', 'DESC')->get();
+        
+                // $jsonData[] = ['Id'=>$value->id, 'title'=>$value->title, 'photo'=>$value['tour_photo']];
+            // }       
+        // // }else{
+        //     $jsonData = ['message'=> "Not Found"];
+        // }
+        // return Response()->json($jsonData);
+        return Response::json($tours);
 
     }
 
@@ -38,7 +48,7 @@ class TourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -49,7 +59,19 @@ class TourController extends Controller
      */
     public function show($id)
     {
-        //
+        $tour = Tour::where(['id'=>$id, 'status'=>1])->first();
+        if ($tour) {
+            $gallery = [];
+            $dataGallery = explode(',', trim($tour->tour_picture, ','));
+            foreach ($dataGallery as $key => $val) {
+                $gallery = ['gallery'=> $val];
+            }
+            $tourData = ['title'=>$tour->title, 'slug'=>$tour->slug, 'user'=>$tour->user, 'photo'=>$tour->photo, 'gallery'=>$gallery, 'country'=> $tour->country, 'province'=> $tour->province];
+        }else{
+            $tourData = ['message'=> "Not Found"];
+        }
+        return response()
+            ->json($tourData);
     }
 
     /**
