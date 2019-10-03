@@ -8,25 +8,21 @@
 use App\component\Content; 
     if (isset($prov->province_photo)) {
          $image    = Content::urlImage( $prov->province_photo, '/photos/share/');
-         $imagetop = Content::urlImage( $prov->province_picture, '/photos/share/');
+        
     }else {
         $image     = 'img/bagan.jpg';
-        $imagetop  = 'img/bagan.jpg';
+   
     }
 ?>
 @section('content')
-@widget('menu')
-<div class="overflownone">
-    <div class="col-md-12 nopaddingleft nopaddingright">
-        <div id="myCarousel" class="slide carousel-fade" style="height:420px;">
-            <div class="carousel-inner" id="carousel-warpper" >
-                <div class="item active item-slide" style="background-image: url({{$imagetop}}); background-position: 0px 0px; background-size: cover;">
-                </div>  
-            </div>    
-        </div>
-    </div>
-    <div class="clearfix"></div>
+@include('widgets.menudemo')
+
+
+<div style="width:100%; height: 420px;" >
+    <div class="item-slide" style="background-image: url(http://takemetoburma.com/photos/share/1548644336-golf_communities.jpg); background-position:center bottom; opacity: 1;">                   
+    </div>  
 </div>
+<div class="clearfix"></div>
 <div style=";background: #00b7f1; color: #fff;">
     <div class="container" style="line-height: 40px"><div class="row"> Tours Packages </div></div>
 </div>
@@ -40,9 +36,9 @@ use App\component\Content;
                 <br>
                 <form method="get" action="">
                     <label for="category" style="font-size: 12px;font-weight: 400;">Category</label>
-<select class="form-control input-sm textbox_color" id="category" name="cat" onchange="this.form.submit()">
+                    <select class="form-control input-sm  textbox_color" id="category" name="cat" onchange="this.form.submit()">
                             <option value="">--select--</option>
-                             <?php 
+                         <?php 
                            $get_cat =\DB::table('tbl_tours as t')
                             ->select(\DB::Raw('cat.id,cat.name as cat_name'))
                             ->groupBy(\DB::raw('(cat.id),(cat.name)'))
@@ -57,28 +53,31 @@ use App\component\Content;
                     </select>
                     <br>
                     <label for="tourtype" style="font-size: 12px;font-weight: 400;">Tour Type</label>
-                    <select class="form-control input-sm textbox_color" id="tourtype" name="tour_type" onchange="this.form.submit()">
-                        <option value="1" <?=  isset($_GET['tour_type']) ? ($_GET['tour_type']==1?'selected': '') : '' ?> >Tour Packages</option>
-                        <option value="0" <?=  isset($_GET['tour_type']) ? ($_GET['tour_type']==0?'selected': '') : '' ?> >Tour</option>                        
+                    <select class="form-control input-sm  textbox_color" id="tourtype" name="tour_type" onchange="this.form.submit()">
+                        <option value="1" {{ isset($_GET['tour_type']) ? ($_GET['tour_type']==1?'selected': '') : ''}}>Tour Packages</option>
+                        <option value="0" {{ isset($_GET['tour_type']) ? ($_GET['tour_type']==0?'selected': '') : ''}}>Tour</option>                        
                     </select>
                     <br>
                     <label for="location" style="font-size: 12px;font-weight: 400;">Destinations</label>
-                    <select class="form-control input-sm textbox_color" id="location" name="location" onchange="this.form.submit()">
+                    <select class="form-control input-sm  textbox_color" id="location" name="location" onchange="this.form.submit()">
                         <option value="">--select--</option>
-                       
-                     <?php $getdata  = \App\Tour::where(['country_id'=> 122,'status'=>1])->get();
-                           $pro_name = $getdata->groupBy('province_id');
-                    foreach ($pro_name as $key => $value): 
-                             $data= \App\Province::whereIn('id',[$key])->get();
-                             foreach ($data as $geta):?>
+                 
+                             <?php foreach (\DB::table('province as pro')
+        ->join('tbl_tours as tour', 'tour.province_id', '=', 'pro.id')
+        ->join('tour_web as tweb', 'tour.id' ,'=', 'tweb.tour_id')
+        ->select('pro.*')
+        ->groupBy('tour.province_id')
+        ->where(['tour.status'=>1,'pro.province_status'=>1,'tour.country_id'=>122,'tweb.web_id'=>config('app.web')])
+        ->inRandomOrder()
+        ->limit(6)
+        ->orderBy('pro.province_order', 'DESC')
+        ->get() as $geta):?>
 
             <option value="{{$geta->slug}}" 
             <?=  isset($_GET['location']) ? ($_GET['location']== $geta->slug?'selected': '') : '' ?> >{{$geta->province_name}}
             </option>
              <?php endforeach ?>    
-           <?php endforeach ?>
-                        
-                    </select>
+                           </select>
                 </form>
                 <div class="row">
                     <hr>
@@ -111,7 +110,10 @@ use App\component\Content;
             </div>
         </div>
         <div class="col-md-9">
-        @if(isset($prov->province_photo))
+
+ 
+
+ @if(isset($prov->province_photo))
         <div class="col-sm-12">
             <div class="example" >
                 <div style="text-align: center;">
@@ -125,7 +127,7 @@ use App\component\Content;
             <div class="example" style="margin-top: 0;">
                 <div class="row">                        
                     <div class="section-title welcome-section widget-title">
-                        <h2><b>Our Popurlar Place</b></h2>
+                        <h2><b>All Popurlar Place</b></h2>
                     </div>
                     @foreach(\DB::table('province as pro')
                                 ->join('tbl_tours as tour', 'tour.province_id', '=', 'pro.id')
@@ -153,6 +155,7 @@ use App\component\Content;
             </div>
         </div>                       
         @endif
+
          <div class="col-sm-12">
             <div class="example">
                 <div class="title text-center widget-title"><h2><b>Tour Packages</b></h2></div>
@@ -181,5 +184,13 @@ use App\component\Content;
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".btnSubmit").on("change", function(){
+            $('form').submit();
+            // alert('hello');
+        });
+    });
+</script>
 @include('include.footer')
 @endsection

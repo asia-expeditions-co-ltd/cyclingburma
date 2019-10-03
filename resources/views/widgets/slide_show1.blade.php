@@ -12,7 +12,7 @@
     
         </div> <!-- // bss-slides -->
 <!-- <script src="https://leemark.github.io/better-simple-slideshow/demo/js/hammer.min.js"></script> for swipe support on touch interfaces --> 
-
+<script type="text/javascript" src="{{asset('js/lib/Hammer.min.js')}}"></script>
 
 <script type="text/javascript">
 	var makeBSS = function (el, options) {

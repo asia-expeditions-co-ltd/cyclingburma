@@ -4,7 +4,8 @@
 
 @section('description', 'Myanmar(Burma) is the good destinations to visit and have lot of golf courses')
 @section('content')
-@widget('menu')
+@include('widgets.menudemo')
+
 
  <style type="text/css">
             .addcol{color: #002aff; }

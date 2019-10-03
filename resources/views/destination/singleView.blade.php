@@ -10,12 +10,9 @@
 <?php 
  
     if (isset($tour->photo)) {
-        $data=\App\Province::where(['id'=>$tour->province_id])->first();
-        $imagetop = Content::urlImage( $data->province_picture, '/photos/share/');
         $image = Content::urlImage($tour->photo, '/photos/share/');
     }else {
         $image = 'img/noImage.jpg';
-        $imagetop = 'img/noImage.jpg';
     }
 ?>
 
@@ -25,13 +22,16 @@
           </style>
 
 @section('content')
-@widget('menu')
+@include('widgets.menudemo')
+
 <div class="overflownone" >
     <div class="col-md-12 nopaddingleft nopaddingright">
-        <div id="myCarousel" class="slide carousel-fade" style="height: 420px;">
-            <div class="carousel-inner" id="carousel-warpper" >              
+        <div id="myCarousel" class="slide carousel-fade" style="height: 400px;">
+            <div class="carousel-inner" id="carousel-warpper" >
+
+              
                 <div class="item active item-slide">
-                  <img src="{{$imagetop}}" style="width: 100%; height: 100%;">
+                  <img src="/photos/share/golf_.jpg" style="width: 100%; height: 100%;">
                 </div>  
             </div>    
         </div>
@@ -233,7 +233,7 @@ Tweet</a>
         ?>
 
          <?php  $webs = \App\Web::find(config('app.web'))->tour()->where(['status'=>1, 'type'=>1, 'province_id'=> $data])->whereNotIn('title',[$getTitle])->get(); ?>
-            <div class="title text-center widget-title"><h2><b>@if($webs->COUNT()>0)Tour Packages in {{$pro_name  }} @endif </b></h2></div>
+            <div class="title text-center widget-title"><h2><b>Tour Packages in {{$pro_name  }} </b></h2></div>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-bottom:22px;">
                 <div class="carousel-inner">
                   @foreach($webs->chunk(4) as $key => $chunkTour)

@@ -34,6 +34,8 @@ Route::post('/sendcontact', 'HomeController@sendContact')->name('sendContact');
 Route::get('our-activities', 'HomeController@getActivity')->name('getActivity');
 Route::get('/activity/single/view/{new}', 'HomeController@singActivity')->name('singleActivity');
 // Route::post('sent/requestteetime', 'HomeController@getRequestTeeTime')->name('sentTeeTime');
+Route::get('our-package', 'HomeController@getpackage')->name('getpackage');
+
 
 Route::get('login', 'UserController@getLogin')->name('getLogin');
 Route::post('doLogin', 'UserController@doLogin')->name('doLogin');

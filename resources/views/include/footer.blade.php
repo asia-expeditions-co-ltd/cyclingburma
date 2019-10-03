@@ -46,10 +46,7 @@
 		          <p> Power By © www.jngtravelpro.com</p>
 		        </div>
 		    </div>
-		 <!--    <div>
-		     	<a id="goTotop" style="position: fixed; right: 19px; display: block; font-size: 35px; z-index: 2;" href="javascript:void(0)"><span class="fa fa-chevron-circle-up"></span>
-		     	</a>
-		    </div> -->
+		   
 			
 		</div>
 	</div>

@@ -3,7 +3,7 @@
 
 @section('title', '')
 
-@section('keywords', 'Cycling Burma, Golf Burma')
+@section('keywords', 'Cycling Burma, Cycling Myanmar, Biking in Myanmar, Cycling Yangon, Cycling Bagan, Irrawaddy dolphin')
 
 @section('description', 'Myanmar(Burma) is the good destinations to visit and have lot of golf courses')
 
@@ -17,8 +17,8 @@ use App\component\Content;
 
 @section('content')
 
+@include('widgets.menudemo')
 
-@widget('menu')
 
 
 @include('widgets.slide_show1')
