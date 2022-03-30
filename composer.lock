@@ -4,67 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3eaa154ae125e8c609b1ef0d5bba4232",
+    "content-hash": "21a28cddc11b1cd19aac43e4b31727fa",
     "packages": [
-        {
-            "name": "albertcht/invisible-recaptcha",
-            "version": "v1.8.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/albertcht/invisible-recaptcha.git",
-                "reference": "8aa950b42aa51452a696338733a05e077ba5a379"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/albertcht/invisible-recaptcha/zipball/8aa950b42aa51452a696338733a05e077ba5a379",
-                "reference": "8aa950b42aa51452a696338733a05e077ba5a379",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.2",
-                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*",
-                "php": "^5.6.4 || ^7.0"
-            },
-            "require-dev": {
-                "illuminate/view": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*",
-                "phpunit/phpunit": "^6.1"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "AlbertCht\\InvisibleReCaptcha\\InvisibleReCaptchaServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "AlbertCht\\InvisibleReCaptcha\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Albert Chen",
-                    "homepage": "https://www.albert-chen.com"
-                }
-            ],
-            "description": "Invisible reCAPTCHA For Laravel.",
-            "keywords": [
-                "captcha",
-                "invisible",
-                "invisible-recaptcha",
-                "laravel",
-                "laravel5",
-                "no-captcha",
-                "php",
-                "recaptcha"
-            ],
-            "time": "2018-08-19T03:44:31+00:00"
-        },
         {
             "name": "arrilot/laravel-widgets",
             "version": "3.9.0",
@@ -228,19 +169,20 @@
         },
         {
             "name": "erusev/parsedown",
-            "version": "1.6.4",
+            "version": "1.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "fbe3fe878f4fe69048bb8a52783a09802004f548"
+                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/fbe3fe878f4fe69048bb8a52783a09802004f548",
-                "reference": "fbe3fe878f4fe69048bb8a52783a09802004f548",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
+                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
                 "shasum": ""
             },
             "require": {
+                "ext-mbstring": "*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -269,59 +211,11 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2017-11-14T20:44:03+00:00"
-        },
-        {
-            "name": "greggilbert/recaptcha",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/greggilbert/recaptcha.git",
-                "reference": "298cbc072e8ba734df2b8af798f848dacd27a4c9"
+            "support": {
+                "issues": "https://github.com/erusev/parsedown/issues",
+                "source": "https://github.com/erusev/parsedown/tree/1.7.x"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/greggilbert/recaptcha/zipball/298cbc072e8ba734df2b8af798f848dacd27a4c9",
-                "reference": "298cbc072e8ba734df2b8af798f848dacd27a4c9",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.1",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/migrations"
-                ],
-                "psr-4": {
-                    "Greggilbert\\Recaptcha\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Greg Gilbert",
-                    "email": "greg@greg-gilbert.com"
-                }
-            ],
-            "description": "reCAPTCHA Validator for Laravel 5",
-            "homepage": "http://github.com/greggilbert/recaptcha",
-            "keywords": [
-                "captcha",
-                "laravel",
-                "laravel5",
-                "recaptcha"
-            ],
-            "time": "2017-04-06T17:10:49+00:00"
+            "time": "2019-12-30T22:54:17+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -4121,5 +4015,6 @@
     "platform": {
         "php": ">=5.6.4"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
